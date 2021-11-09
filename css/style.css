@@ -61,7 +61,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px; /* Margin entre as Tarefas  */
 }
 
 .btnAcao {
