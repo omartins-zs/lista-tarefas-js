@@ -59,3 +59,14 @@ function CriarTagLi(tarefa) {
   li.appendChild(div);
   return li;
 }
+
+function editar(idTarefa) {
+  let li = document.getElementById("" + idTarefa + "");
+  if (li) {
+    idTarefaEdicao.innerHTML = "#" + idTarefa;
+    inputTarefaNomeEdicao.value = li.innerText;
+    alternarJanelaEdicao();
+  } else {
+    alert("Elemento HTML não encontrado!");
+  }
+}
