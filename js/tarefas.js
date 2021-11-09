@@ -1,6 +1,12 @@
 let inputNovaTarefa = document.querySelector("#inputNovaTarefa");
 let btnAddTarefa = document.querySelector("#btnAddTarefa");
 let listaTarefas = document.querySelector("#listaTarefas");
+let janelaEdicao = document.querySelector("#janelaEdicao");
+let janelaEdicaoFundo = document.querySelector("#janelaEdicaoFundo");
+let janelaEdicaoBtnFechar = document.querySelector("#janelaEdicaoBtnFechar");
+let btnAtualizarTarefa = document.querySelector("#btnAtualizarTarefa");
+let idTarefaEdicao = document.querySelector("#idTarefaEdicao");
+let inputTarefaNomeEdicao = document.querySelector("#inputTarefaNomeEdicao");
 
 inputNovaTarefa.addEventListener("keypress", (e) => {
   if (e.keyCode == 13) {
@@ -8,17 +14,40 @@ inputNovaTarefa.addEventListener("keypress", (e) => {
       nome: inputNovaTarefa.value,
       id: gerarId(),
     };
-    // TODO:: Adiconar Tarefa ao HTML
+    adicionarTarefa(tarefa);
   }
 });
 
-btnAddTarefa.addEventListener("keypress", (e) => {
-  if (e.keyCode == 13) {
-    let tarefa = {
-      nome: inputNovaTarefa.value,
-      id: gerarId(),
-    };
-    // TODO:: Adiconar Tarefa ao HTML
+janelaEdicaoBtnFechar.addEventListener("click", (e) => {
+  alternarJanelaEdicao();
+});
+
+btnAddTarefa.addEventListener("click", (e) => {
+  let tarefa = {
+    nome: inputNovaTarefa.value,
+    id: gerarId(),
+  };
+  adicionarTarefa(tarefa);
+});
+
+btnAtualizarTarefa.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let idTarefa = idTarefaEdicao.innerHTML.replace("#", "");
+
+  let tarefa = {
+    nome: inputTarefaNomeEdicao.value,
+    id: idTarefa,
+  };
+
+  let tarefaAtual = document.getElementById("" + idTarefa + "");
+
+  if (tarefaAtual) {
+    let li = criarTagLI(tarefa);
+    listaTarefas.replaceChild(li, tarefaAtual);
+    alternarJanelaEdicao();
+  } else {
+    alert("Elemento HTML não encontrado!");
   }
 });
 
@@ -26,13 +55,13 @@ function gerarId() {
   return Math.floor(Math.random() * 3000);
 }
 
-function AdicionarTarefa(tarefa) {
+function adicionarTarefa(tarefa) {
   let li = criarTagLI(tarefa);
   listaTarefas.appendChild(li);
   inputNovaTarefa.value = "";
 }
 
-function CriarTagLi(tarefa) {
+function criarTagLI(tarefa) {
   let li = document.createElement("li");
   li.id = tarefa.id;
 
@@ -70,6 +99,7 @@ function editar(idTarefa) {
     alert("Elemento HTML não encontrado!");
   }
 }
+
 function excluir(idTarefa) {
   let confirmacao = window.confirm("Tem certeza que deseja excluir? ");
   if (confirmacao) {
@@ -80,4 +110,9 @@ function excluir(idTarefa) {
       alert("Elemento HTML não encontrado!");
     }
   }
+}
+
+function alternarJanelaEdicao() {
+  janelaEdicao.classList.toggle("abrir");
+  janelaEdicaoFundo.classList.toggle("abrir");
 }
