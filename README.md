@@ -24,7 +24,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Font Awesome](https://www.w3schools.com/icons/fontawesome_icons_webapp.asp)
 
 
+#### **Utilitários**
 
-Canal do Youtube e Playlist: [Douglas Horstmann](https://www.youtube.com/playlist?list=PLEuLN871skK7VRR-MVvkTC8eIlKL62Z0Q)
-
-Os ícones utilizados estão disponíveis aqui: [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css)
+- **Site para saber KeyCode das teclas [KeyCode](https://keycode.info/)**
+- **Os ícones utilizados estão disponíveis aqui: [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css)**
+- **Canal do Youtube e Playlist: [Douglas Horstmann](https://www.youtube.com/playlist?list=PLEuLN871skK7VRR-MVvkTC8eIlKL62Z0Q)**
+- **Icone Do Js no Readme: [Repositorio devicons/devicon](https://github.com/devicons/devicon/tree/master/icons)**
+- **Editor: [Visual Studio Code](https://code.visualstudio.com/)**
+- **Markdown: [Markdown Guide](https://www.markdownguide.org/basic-syntax/)**
+- **Emoji Markdown: [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet)**
