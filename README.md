@@ -1,6 +1,14 @@
 
 <h1 align="center">Lista de Tarefas com JavaScript<img align="right" height="40" width="45" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg"></h1>
 
+<h1 align="center">
+  <img src="./img/lista-tarefas-js.gif">
+</h1>
+
+<p class="lead" align="center">Lista de tarefas com HTML, CSS e Javascript</p>
+
+<br>
+
 
  ## 🚀 Tecnologias
 
