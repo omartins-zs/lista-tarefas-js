@@ -22,3 +22,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
  Para saber de outros ícones disponíveis, pode ser consultado aqui:
 - [Font Awesome](https://www.w3schools.com/icons/fontawesome_icons_webapp.asp)
+
+
+
+Canal do Youtube e Playlist: [Douglas Horstmann](https://www.youtube.com/playlist?list=PLEuLN871skK7VRR-MVvkTC8eIlKL62Z0Q)
