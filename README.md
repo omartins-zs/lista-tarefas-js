@@ -26,6 +26,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 #### **Utilitários**
 
+- **Respositorio  de [douglash93](https://github.com/douglash93/lista-de-tarefas/)**
 - **Site para saber KeyCode das teclas [KeyCode](https://keycode.info/)**
 - **Os ícones utilizados estão disponíveis aqui: [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css)**
 - **Canal do Youtube e Playlist: [Douglas Horstmann](https://www.youtube.com/playlist?list=PLEuLN871skK7VRR-MVvkTC8eIlKL62Z0Q)**
