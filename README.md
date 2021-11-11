@@ -26,3 +26,5 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 
 Canal do Youtube e Playlist: [Douglas Horstmann](https://www.youtube.com/playlist?list=PLEuLN871skK7VRR-MVvkTC8eIlKL62Z0Q)
+
+Os ícones utilizados estão disponíveis aqui: [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css)
