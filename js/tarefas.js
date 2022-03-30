@@ -50,6 +50,10 @@ btnAtualizarTarefa.addEventListener("click", (e) => {
   let tarefaAtual = document.getElementById("" + idTarefa + "");
 
   if (tarefaAtual) {
+
+    const indiceTarefa = obterIndiceTarefaPorId(idTarefa);
+    dbTarefas[indiceTarefa] = tarefa;
+
     let li = criarTagLI(tarefa);
     listaTarefas.replaceChild(li, tarefaAtual);
     alternarJanelaEdicao();
@@ -133,9 +137,6 @@ function editar(idTarefa) {
   let li = document.getElementById("" + idTarefa + "");
   if (li) {
 
-    const indiceTarefa = obterIndiceTarefaPorId(idTarefa)
-
-
     idTarefaEdicao.innerHTML = "#" + idTarefa;
     inputTarefaNomeEdicao.value = li.innerText;
     alternarJanelaEdicao();
@@ -150,7 +151,7 @@ function excluir(idTarefa) {
 
     const indiceTarefa = obterIndiceTarefaPorId(idTarefa);
 
-    dbTarefas = dbTarefas.splice(indiceTarefa, 1)
+    dbTarefas.splice(indiceTarefa, 1)
     salvarTarefasLocalStorage();
     let li = document.getElementById("" + idTarefa + "");
     if (li) {
