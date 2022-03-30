@@ -9,6 +9,7 @@ let idTarefaEdicao = document.querySelector("#idTarefaEdicao");
 let inputTarefaNomeEdicao = document.querySelector("#inputTarefaNomeEdicao");
 const qtdIdsDisponiveis = Number.MAX_VALUE;
 const KEY_CODE_ENTER = 13;
+let dbTarefas = []
 
 inputNovaTarefa.addEventListener("keypress", (e) => {
   if (e.keyCode == KEY_CODE_ENTER) {
@@ -90,6 +91,9 @@ function gerarIdUnico() {
 }
 
 function adicionarTarefa(tarefa) {
+  dbTarefas.push(tarefa)
+  // Salvando e convertendo para Json para guardar no localStorage
+  localStorage.setItem("listaDeTarefas", JSON.stringify(dbTarefas));
   let li = criarTagLI(tarefa);
   listaTarefas.appendChild(li);
   inputNovaTarefa.value = "";
