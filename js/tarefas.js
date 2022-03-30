@@ -154,3 +154,10 @@ function alternarJanelaEdicao() {
   janelaEdicao.classList.toggle("abrir");
   janelaEdicaoFundo.classList.toggle("abrir");
 }
+
+function obterTarefasLocalStorage() {
+  if(localStorage.getItem("listaDeTarefas")){
+    return JSON.parse(localStorage.getItem("listaDeTarefas"))
+  }
+  return [];
+}
