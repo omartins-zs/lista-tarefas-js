@@ -11,6 +11,9 @@ const qtdIdsDisponiveis = Number.MAX_VALUE;
 const KEY_CODE_ENTER = 13;
 let dbTarefas = []
 
+obterTarefasLocalStorage();
+renderizarTarefaHtml();
+
 inputNovaTarefa.addEventListener("keypress", (e) => {
   if (e.keyCode == KEY_CODE_ENTER) {
     let tarefa = {
@@ -94,9 +97,7 @@ function adicionarTarefa(tarefa) {
   dbTarefas.push(tarefa)
   // Salvando e convertendo para Json para guardar no localStorage
   localStorage.setItem("listaDeTarefas", JSON.stringify(dbTarefas));
-  let li = criarTagLI(tarefa);
-  listaTarefas.appendChild(li);
-  inputNovaTarefa.value = "";
+
 }
 
 function criarTagLI(tarefa) {
@@ -155,9 +156,17 @@ function alternarJanelaEdicao() {
   janelaEdicaoFundo.classList.toggle("abrir");
 }
 
-function obterTarefasLocalStorage() {
-  if(localStorage.getItem("listaDeTarefas")){
-    return JSON.parse(localStorage.getItem("listaDeTarefas"))
+function renderizarTarefaHtml() {
+
+  for (let i = 0; i < dbTarefas.length; i++) {
+    let li = criarTagLI(dbTarefas[i]);
+    listaTarefas.appendChild(li);
   }
-  return [];
+  inputNovaTarefa.value = "";
+}
+
+function obterTarefasLocalStorage() {
+  if (localStorage.getItem("listaDeTarefas")) {
+    dbTarefas = JSON.parse(localStorage.getItem("listaDeTarefas"))
+  }
 }
