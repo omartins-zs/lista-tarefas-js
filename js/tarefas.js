@@ -9,6 +9,7 @@ let idTarefaEdicao = document.querySelector("#idTarefaEdicao");
 let inputTarefaNomeEdicao = document.querySelector("#inputTarefaNomeEdicao");
 const qtdIdsDisponiveis = Number.MAX_VALUE;
 const KEY_CODE_ENTER = 13;
+const KEY_LOCAL_STORAGE = 'listaDeTarefas';
 let dbTarefas = []
 
 obterTarefasLocalStorage();
@@ -96,7 +97,7 @@ function gerarIdUnico() {
 function adicionarTarefa(tarefa) {
   dbTarefas.push(tarefa)
   // Salvando e convertendo para Json para guardar no localStorage
-  localStorage.setItem("listaDeTarefas", JSON.stringify(dbTarefas));
+  salvarTarefasLocalStorage();
   renderizarTarefaHtml();
 }
 
@@ -131,6 +132,10 @@ function criarTagLI(tarefa) {
 function editar(idTarefa) {
   let li = document.getElementById("" + idTarefa + "");
   if (li) {
+
+    const indiceTarefa = obterIndiceTarefaPorId(idTarefa)
+
+
     idTarefaEdicao.innerHTML = "#" + idTarefa;
     inputTarefaNomeEdicao.value = li.innerText;
     alternarJanelaEdicao();
@@ -142,15 +147,11 @@ function editar(idTarefa) {
 function excluir(idTarefa) {
   let confirmacao = window.confirm("Tem certeza que deseja excluir? ");
   if (confirmacao) {
-    const indiceTarefa = dbTarefas.findIndex(t => t.id == idTarefa);
 
-    if (indiceTarefa > 0) {
-      throw new Error('Id da tarefa não encontrado: ', idTarefa)
-    }
+    const indiceTarefa = obterIndiceTarefaPorId(idTarefa);
 
     dbTarefas = dbTarefas.splice(indiceTarefa, 1)
-    localStorage.setItem("listaDeTarefas", JSON.stringify(dbTarefas));
-
+    salvarTarefasLocalStorage();
     let li = document.getElementById("" + idTarefa + "");
     if (li) {
       listaTarefas.removeChild(li);
@@ -165,6 +166,14 @@ function alternarJanelaEdicao() {
   janelaEdicaoFundo.classList.toggle("abrir");
 }
 
+function obterIndiceTarefaPorId(idTarefa) {
+  const indiceTarefa = dbTarefas.findIndex(t => t.id == idTarefa);
+  if (indiceTarefa > 0) {
+    throw new Error('Id da tarefa não encontrado: ', idTarefa)
+  }
+  return indiceTarefa;
+}
+
 function renderizarTarefaHtml() {
   listaTarefas.innerHTML = ""
   for (let i = 0; i < dbTarefas.length; i++) {
@@ -174,8 +183,12 @@ function renderizarTarefaHtml() {
   inputNovaTarefa.value = "";
 }
 
+function salvarTarefasLocalStorage() {
+  localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(dbTarefas));
+}
+
 function obterTarefasLocalStorage() {
-  if (localStorage.getItem("listaDeTarefas")) {
-    dbTarefas = JSON.parse(localStorage.getItem("listaDeTarefas"))
+  if (localStorage.getItem(KEY_LOCAL_STORAGE)) {
+    dbTarefas = JSON.parse(localStorage.getItem(KEY_LOCAL_STORAGE))
   }
 }
