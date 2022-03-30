@@ -53,6 +53,7 @@ btnAtualizarTarefa.addEventListener("click", (e) => {
 
     const indiceTarefa = obterIndiceTarefaPorId(idTarefa);
     dbTarefas[indiceTarefa] = tarefa;
+    salvarTarefasLocalStorage();
 
     let li = criarTagLI(tarefa);
     listaTarefas.replaceChild(li, tarefaAtual);
