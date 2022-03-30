@@ -8,9 +8,10 @@ let btnAtualizarTarefa = document.querySelector("#btnAtualizarTarefa");
 let idTarefaEdicao = document.querySelector("#idTarefaEdicao");
 let inputTarefaNomeEdicao = document.querySelector("#inputTarefaNomeEdicao");
 const qtdIdsDisponiveis = Number.MAX_VALUE;
+const KEY_CODE_ENTER = 13;
 
 inputNovaTarefa.addEventListener("keypress", (e) => {
-  if (e.keyCode == 13) {
+  if (e.keyCode == KEY_CODE_ENTER) {
     let tarefa = {
       nome: inputNovaTarefa.value,
       id: gerarIdV2(),
