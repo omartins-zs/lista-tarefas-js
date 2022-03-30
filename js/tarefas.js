@@ -97,7 +97,7 @@ function adicionarTarefa(tarefa) {
   dbTarefas.push(tarefa)
   // Salvando e convertendo para Json para guardar no localStorage
   localStorage.setItem("listaDeTarefas", JSON.stringify(dbTarefas));
-
+  renderizarTarefaHtml();
 }
 
 function criarTagLI(tarefa) {
@@ -142,6 +142,15 @@ function editar(idTarefa) {
 function excluir(idTarefa) {
   let confirmacao = window.confirm("Tem certeza que deseja excluir? ");
   if (confirmacao) {
+    const indiceTarefa = dbTarefas.findIndex(t => t.id == idTarefa);
+
+    if (indiceTarefa > 0) {
+      throw new Error('Id da tarefa não encontrado: ', idTarefa)
+    }
+
+    dbTarefas = dbTarefas.splice(indiceTarefa, 1)
+    localStorage.setItem("listaDeTarefas", JSON.stringify(dbTarefas));
+
     let li = document.getElementById("" + idTarefa + "");
     if (li) {
       listaTarefas.removeChild(li);
@@ -157,7 +166,7 @@ function alternarJanelaEdicao() {
 }
 
 function renderizarTarefaHtml() {
-
+  listaTarefas.innerHTML = ""
   for (let i = 0; i < dbTarefas.length; i++) {
     let li = criarTagLI(dbTarefas[i]);
     listaTarefas.appendChild(li);
